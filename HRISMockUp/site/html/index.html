@@ -12,54 +12,77 @@
 	</head>
 	<body>
 		<div class="hris-demo">
-			<div class="navbar">
-				<div class="container-fluid">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							<a href="#">Employees</a>
+			<div class="search-bar">
+				<button class="navbar-toggle-btn"><span class="navbar-toggle-icon"></button>
+				<div class="dropdown form-item country-filter">
+<!-- 					<label class="form-label">Select Office</label> -->
+					<input type="text" class="country-filter-input" name="country-filter" readonly value="Los Angeles" />
+					<ul class="dropdown-container">
+						<li class="dropdown-option-container">
+							<a class="dropdown-option" href="#" data-value="Los Angeles">Los Angeles</a>
 						</li>
-						<li>
-							<a href="#">Payroll</a>
+						<li class="dropdown-option-container">
+							<a class="dropdown-option" href="#" data-value="Dalian">Dalian</a>
 						</li>
-						<li>
-							<a href="#">Reports</a>
+						<li class="dropdown-option-container">
+							<a class="dropdown-option" href="#" data-value="Hungary">Hungary</a>
 						</li>
 					</ul>
 				</div>
+				<input class="search-field" placeholder="Search..." type="search">
+			</div>
+			<div class="vertical-navbar">
+				<li class="vertical-nav-item active"><a href="#">Employee</a></li>
+				<li class="vertical-nav-item"><a href="#">Payroll</a></li>
+				<li class="vertical-nav-item"><a href="#">Report</a></li>
+				<li class="vertical-nav-item"><a href="#">Settings</a></li>
 			</div>
 			<div class="content">
 				<div class="sidebar closed">
 					<button class="close-button"></button>
+					<button class="save-button">
+						<span>save</span>
+					</button>
 					<div class="form-field-nav">
-						<li class="vertical-nav-item active">
+						<li class="form-nav-item active"  id="personal-link">
 							<a href="#personal">Personal</a>
 						</li>
-						<li class="vertical-nav-item">
+						<li class="form-nav-item" id="job-link">
 							<a href="#job">Job</a>
 						</li>
-						<li class="vertical-nav-item">
+						<li class="form-nav-item" id="pay-link">
+							<a href="#pay">Pay</a>
+						</li>
+						<li class="form-nav-item" id="benefits-Deductions-link">
 							<a href="#benefits-deductions">Benefits & Deductions</a>
 						</li>
 					</div>
-					<div class="form-field">
+					<form class="form-field">
 						<h3 class="form-category-header" id="personal">Personal</h3>
 						<div class="form-category personal"></div>
 						<h3 class="form-category-header" id="job">Job</h3>
 						<div class="form-category job"></div>
+						<h3 class="form-category-header" id="pay">Pay</h3>
+						<div class="form-category pay"></div>
 						<h3 class="form-category-header" id="benefits-deductions">Benefits & Deductions</h3>
 						<div class="form-category benefits-deductions"></div>
-					</div>
+					</form>
+					<!-- <button class="save-button"></button> -->
 				</div>
 				<div class="main-container">
 					<div class="container-fluid">
 						<ul class="list-group employee-list">
+							<li class="new-employee-container">
+								<button class="create-employee-btn"></button>
+								<span class="create-employee-label">Create Employee</span>
+							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 		<script>
-			var hrisDemo = YUI().use(
+			var hrisDemo = YUI().ready(
 				'hris-mockup',
 				function(Y) {
 					var demo = new Y.HRISMockup(
